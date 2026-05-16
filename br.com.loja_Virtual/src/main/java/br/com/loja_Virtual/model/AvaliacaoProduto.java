@@ -3,6 +3,7 @@ package br.com.loja_Virtual.model;
 import java.io.Serializable;
 import java.util.Objects;
 
+import javax.persistence.Column;
 import javax.persistence.ConstraintMode;
 import javax.persistence.Entity;
 import javax.persistence.ForeignKey;
@@ -26,6 +27,7 @@ public class AvaliacaoProduto implements Serializable {
 	@GeneratedValue(strategy = GenerationType.SEQUENCE,generator = "seq_avaliacao_produto")
 	private Long id;
 	
+	@Column(nullable = false)
 	private Integer nota;
 	
 	@ManyToOne
@@ -38,6 +40,7 @@ public class AvaliacaoProduto implements Serializable {
 	foreignKey = @ForeignKey(value = ConstraintMode.CONSTRAINT, name = "pessoa_fk"))
 	private Pessoa pessoa;
 	
+	@Column(nullable = false)
 	private String descricao;
 	
 	public String getDescricao() {
